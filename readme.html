@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Color Report Sample</title>
+  <link rel="stylesheet" type="text/css" href="../../docs/tutorial/content/contentstyle.css"/>
+</head>
+<body>
+<h1>Color Report Sample</h1>
+<p>
+  This sample is intended to demonstrate the use of trend data to perform some simple (but hopefully useful) calculations
+  to generate a simple HTML report.
+</p>
+<p >
+  This example relies on special trend data that you probably aren't gathering by default.  It looks for binary wire trends
+  named &quot;green_trn&quot; that trend a value which is true whenever a zone's color is not green or grey.  This will be
+  true when the zone is &quot;unhappy&quot; or not satisfied.  Something like:
+  <img style="vertical-align:bottom;" src="images/trendlogic.gif" alt="if color microblock tied to binary wire trend"/>
+</p>
+<p>
+  It is not necessarily problematic for a zone to be in this unhappy state at any given time.  You actually would expect
+  zones to move into the light blue or yellow bands regularly if any heating/cooling was needed.  It probably does indicate
+  a problem if zones stay in this condition all of the time.  It might not be bad enough to trigger an zone temp alarm, but
+  may still need further investigation.
+</p>
+<p>
+  This sample finds all of the zones that have the green_trn trend and total up the time each zone is &quot;unhappy&quot;
+  over the specified 24 hr period.  It presents the list of zones in order of unhappiness.
+</p>
+<h2>Try it out</h2>
+<p>
+  Deploy the Color Report sample add-on by executing the 'deploy' task and starting (if necessary) the server.
+</p>
+
+<p>
+  Browse to <span class="examp">http://yourserver/colorreport</span> (<a target="_blank" href="http://localhost/colorreport">open on localhost</a>).
+  This should present a login page. Log in with any valid operator and password.
+</p>
+<p>
+  You can type in a date and a location.  The &quot;Run Report&quot; button will generate the list of zones
+  beneath the specified location in order of unhappiness.
+</p>
+<h2>Important Lessons</h2>
+<p>
+  This web app add-on is a good example of access to basic trend data.  <span class="examp">Happy.java</span>
+  demonstrates finding Trend sources, reading a range of trend data, and using a
+  <a target="_blank" href="../../docs/javadoc/index.html?com/controlj/green/addonsupport/access/trend/TrendProcessor.html">TrendProcessor</a>.
+</p>
+<p class="precedingtight">
+  <span class="examp">Happy.determineUnhappiness</span> finds trend sources using:
+</p>
+<pre class="followingtight">
+Collection&lt;DigitalTrendSource> sources = start.find(DigitalTrendSource.class,
+                                                       Acceptors.enabledTrendSourceByName(tsName));
+</pre>
+<p class="precedingtight">
+  A trend range specification (selecting a range of data out of a particular trend source) is created using:
+</p>
+<pre class="followingtight">
+TrendRange range = TrendRangeFactory.byDateRange(startDate, endDate);
+</pre>
+
+<p class="precedingtight">
+  The data is retrieved and then processed using:
+</p>
+<pre class="followingtight">
+TrendData&lt;TrendDigitalSample> tdata = source.getTrendData(range);
+UnhappyTimeProcessor processor = tdata.process(new UnhappyTimeProcessor());
+</pre>
+
+<p class="precedingtight">
+  While data can be read directly from the <span class="examp">TrendData</span> object, it is often best to use a custom 
+  <a target="_blank" href="../../docs/javadoc/index.html?com/controlj/green/addonsupport/access/trend/TrendProcessor.html">TrendProcessor</a>.
+  The system can then intelligently handle missing data (from sources being enabled/disabled,
+  communication loss, or other conditions).
+</p>
+</body>
+</html>
