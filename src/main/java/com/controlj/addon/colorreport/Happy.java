@@ -11,7 +11,6 @@
 =============================================================================*/
 package com.controlj.addon.colorreport;
 
-import com.controlj.green.addonsupport.AddOnInfo;
 import com.controlj.green.addonsupport.InvalidConnectionRequestException;
 import com.controlj.green.addonsupport.access.*;
 import com.controlj.green.addonsupport.access.aspect.DigitalTrendSource;
@@ -27,7 +26,7 @@ public class Happy
 
    public Happy(HttpServletRequest request) throws InvalidConnectionRequestException
    {
-      system = AddOnInfo.getAddOnInfo().getUserSystemConnection(request);
+      system = DirectAccess.getDirectAccess().getUserSystemConnection(request);
    }
 
    public Collection<HappyEquipment> determineUnhappiness(final String tsName, final Date startDate,
