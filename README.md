@@ -7,7 +7,7 @@ to generate a simple HTML report.
 This example relies on special trend data that you probably aren't gathering by default.  It looks for binary wire trends
 named "green_trn" that trend a value which is true whenever a zone's color is not green or grey.  This will be
 true when the zone is "unhappy" or not satisfied.  Something like:
-(ColorReport/raw/master/images/trendlogic.gif)
+![if color microblock tied to binary wire trend](ColorReport/raw/master/images/trendlogic.gif)
 
 It is not necessarily problematic for a zone to be in this unhappy state at any given time.  You actually would expect
 zones to move into the light blue or yellow bands regularly if any heating/cooling was needed.  It probably does indicate
@@ -47,6 +47,6 @@ The data is retrieved and then processed using:
     TrendData<TrendDigitalSample> tdata = source.getTrendData(range);
     UnhappyTimeProcessor processor = tdata.process(new UnhappyTimeProcessor());
 
-While data can be read directly from the `TrendData` object, it is often best to use a custom TrendProcessor.
+While data can be read directly from the `TrendData` object, it is often best to use a custom `TrendProcessor`.
 The system can then intelligently handle missing data (from sources being enabled/disabled,
 communication loss, or other conditions).
