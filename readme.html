@@ -1,9 +1,93 @@
+<!--
+  ~ Copyright (c) 2010 Automated Logic Corporation
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~ THE SOFTWARE.
+  -->
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
   <title>Color Report Sample</title>
-  <link rel="stylesheet" type="text/css" href="../../docs/tutorial/content/contentstyle.css"/>
+  <style type="text/css">
+    body {
+       font-family: Helvetica, Arial, sans-serif;
+       font-size: small;
+       color: black;
+       background-color: white;
+    }
+
+    h1 {
+      font-size: 200%;
+    }
+
+    h2 {
+      font-size: 150%;
+      background-color:#e5ecf9;
+      margin-top:2em;
+      padding-left:3px;
+      padding-right:1px;
+    }
+
+    h3 {
+      font-size:120%;
+      padding-left:3px;
+      background-color:#F5F8FD;
+    }
+
+    pre {
+      background-color:#e5ecf9;
+      border:solid #3060C0 1px;
+      padding:4px;
+      font-size:90%;
+      margin-bottom:2em;
+    }
+
+    .examp {
+      /* white-space:pre; */
+      font-family:monospace;
+    }
+
+    table {
+      border-top:solid #D0D0D0 1px;
+      border-left:solid #D0D0D0 1px;
+      border-right:solid #D0D0D0 1px;
+    }
+
+    td {
+      padding:5px;
+      border-bottom:solid #D0D0D0 1px;
+    }
+
+    th {
+      padding:5px;
+      background-color:#D0D0D0;
+    }
+
+    .precedingtight {
+      margin-bottom:0.3em;
+    }
+
+    .followingtight {
+      margin-top:0;
+    }
+   </style>
 </head>
 <body>
 <h1>Color Report Sample</h1>
@@ -43,8 +127,7 @@
 <h2>Important Lessons</h2>
 <p>
   This web app add-on is a good example of access to basic trend data.  <span class="examp">Happy.java</span>
-  demonstrates finding Trend sources, reading a range of trend data, and using a
-  <a target="_blank" href="../../docs/javadoc/index.html?com/controlj/green/addonsupport/access/trend/TrendProcessor.html">TrendProcessor</a>.
+  demonstrates finding Trend sources, reading a range of trend data, and using a TrendProcessor.
 </p>
 <p class="precedingtight">
   <span class="examp">Happy.determineUnhappiness</span> finds trend sources using:
@@ -70,7 +153,7 @@ UnhappyTimeProcessor processor = tdata.process(new UnhappyTimeProcessor());
 
 <p class="precedingtight">
   While data can be read directly from the <span class="examp">TrendData</span> object, it is often best to use a custom 
-  <a target="_blank" href="../../docs/javadoc/index.html?com/controlj/green/addonsupport/access/trend/TrendProcessor.html">TrendProcessor</a>.
+  TrendProcessor.
   The system can then intelligently handle missing data (from sources being enabled/disabled,
   communication loss, or other conditions).
 </p>
