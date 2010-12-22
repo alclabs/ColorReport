@@ -37,3 +37,15 @@ Copyright 2007-2010 Automated Logic Corporation
 Website: http://alcshare.com
 License: http://repo.alcshare.com/licenses/addon-license-1.html
 
+-------------------------------------------------------------------------------
+taglibs standard package
+-------------------------------------------------------------------------------
+Website: http://tomcat.apache.org/taglibs/standard/
+License: Apache version 2.0 - http://www.apache.org/licenses/LICENSE-2.0.html
+
+-------------------------------------------------------------------------------
+jstl package
+-------------------------------------------------------------------------------
+Website: http://java.sun.com/products/jsp/jstl/
+License: Unable to determine
+
