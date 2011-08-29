@@ -15,6 +15,7 @@ info {
 dependencies {
    compile 'jstl:jstl:1.1.2'
    compile 'taglibs:standard:1.1.2'
+   compile 'org.json:json:20080701'
 
     providedCompile 'com.controlj.green:directaccess-api-addon:1.1.0.+'
     providedCompile 'com.controlj.green:webaccess-api-addon:1.1.0.+'

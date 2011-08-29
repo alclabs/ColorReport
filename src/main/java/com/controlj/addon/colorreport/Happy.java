@@ -52,7 +52,7 @@ public class Happy
       {
          public void execute(SystemAccess systemAccess) throws Exception
          {
-            Location start = systemAccess.getGeoRoot().getDescendant(startLocation);
+            Location start = systemAccess.getTree(SystemTree.Geographic).resolve(startLocation);
             Collection<DigitalTrendSource> sources = start.find(DigitalTrendSource.class,
                                                                 Acceptors.enabledTrendSourceByName(tsName));
             for (DigitalTrendSource source : sources)

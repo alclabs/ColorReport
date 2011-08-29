@@ -25,7 +25,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
-   
+
+   <servlet>
+        <servlet-name>treedata</servlet-name>
+        <servlet-class>com.controlj.addon.colorreport.servlets.TreeDataServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>results</servlet-name>
+        <servlet-class>com.controlj.addon.colorreport.servlets.ResultsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>results</servlet-name>
+        <url-pattern>/servlets/results/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>treedata</servlet-name>
+        <url-pattern>/servlets/treedata/*</url-pattern>
+    </servlet-mapping>
+
    <security-constraint>
       <web-resource-collection>
          <web-resource-name>WEB</web-resource-name>
