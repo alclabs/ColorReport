@@ -1,23 +1,23 @@
 // this bit of complexity is to pull down the main build script from the alclabs maven repository
 // and then apply it.
 configurations { gradleScript }
-repositories { mavenRepo urls: 'http://repo.alcshare.com' }
-dependencies { gradleScript group: 'com.alcshare', name: 'alclabs-gradle', ext: 'gradle', version: '1.0.5' }
+repositories { mavenRepo url: 'http://repo.alcshare.com' }
+dependencies { gradleScript group: 'com.alcshare', name: 'alclabs-gradle', ext: 'gradle', version: '1.0.7' }
 apply from: configurations.gradleScript.resolve().iterator().next()
 
 info {
   name = 'Color Report'
   description = 'Developer sample demoing basic trend processing'
-  version = '2.0'
+  version = '3.0'
   vendor = 'ALC Labs'
 }
 
 dependencies {
-   compile 'jstl:jstl:1.1.2'
+   compile 'jstl:jstl:1.2'
    compile 'taglibs:standard:1.1.2'
-   compile 'org.json:json:20080701'
+   compile 'org.json:json:20090211'
 
-    providedCompile 'com.controlj.green:directaccess-api-addon:1.1.0.+'
-    providedCompile 'com.controlj.green:webaccess-api-addon:1.1.0.+'
-    providedCompile 'javax.servlet:servlet-api:2.5'
+   providedCompile 'com.controlj.green:directaccess-api-addon:1.1.+'
+   providedCompile 'com.controlj.green:webaccess-api-addon:1.1.+'
+   providedCompile 'javax.servlet:servlet-api:2.5'
 }

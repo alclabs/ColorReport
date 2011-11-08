@@ -25,8 +25,7 @@ $(function() {
     });
     $("#runbutton").button().bind("click", function() {
         var node = $('#tree').dynatree('getActiveNode')
-        var startdate = $("#ComboBox option:selected").value()
-        //var startdate = $('#datepicker').datepicker("getDate")
+        var startdate = $("#ComboBox option:selected").val()
 
         if (!node)
             return
